@@ -1,3 +1,6 @@
 # ignored folders
 .venv-project1/*
 .vscode/*
+
+# ignored files
+*.log
