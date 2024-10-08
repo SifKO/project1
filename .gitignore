@@ -1,6 +1,10 @@
-# ignored folders
-.venv-project1/*
-.vscode/*
+# Игнорируемые папки
+**/.git/
+**/.venv*/
+**/.vscode/
+**/__pycache__/
 
-# ignored files
+# Игнорируемые файлы
+**/.DS_Store
+**/Thumbs.db
 *.log
