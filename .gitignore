@@ -1,0 +1,12 @@
+# Ignored foldefs
+**/.git/
+**/.venv*/
+**/.vscode/
+**/__pycache__/
+**/uploads/
+
+# Ignoref files
+**/.DS_Store
+**/Thumbs.db
+**/*.jpg
+*.log

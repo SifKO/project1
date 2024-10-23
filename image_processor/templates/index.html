@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+{{ form.hidden_tag() }}
+<div class="container mt-5">
+<form method="post" enctype="multipart/form-data" class="mb-4">
+    {{ form.hidden_tag() }}
+    <div class="form-group text-center">
+        {% for error in form.errors %}
+        <span class="text-danger ">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <div class="form-group text-center">
+        <h3>Загрузи изображение</h3>
+        {{ form.photo(class="form-control text-center") }}
+        <p>*.jpg, *.png</p>
+    </div>
+
+    <div class="form-group text-center">
+        {{ form.recapthca.label(class="form-label") }}
+        <div class="d-flex justify-content-center">
+
+            {{ form.recapthca() }}
+        </div>
+        {{ form.csrf_token }}
+        <button type="submit" class="btn btn-primary ">Отправить</button>
+    </div>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center">Исходное изображение</th>
+        </tr>
+        <tr class="text-center">
+            <td>
+                <img src="{{ url_for('static', filename='uploads/' + pic.orig_pic) }}" alt="" class="img-fluid">
+            </td>
+        </tr>
+    </thead>
+</table>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Изображение по x</th>
+            <th>График RGB</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        </tr>
+        {% for item, x_rgb in zip(pic.x_orig, pic.x_rgb) %}
+        <tr>
+            <td>
+                <img src="{{ url_for('static', filename='uploads/' + item) }}" alt="" class="img-fluid">
+            </td>
+            <td>
+                <img src="{{ url_for('static', filename='uploads/' + x_rgb) }}" alt="" class="img-fluid">
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <th>Изображение по y</th>
+            <th>График RGB</th>
+        </tr>
+        {% for item, y_rgb in zip(pic.y_orig, pic.y_rgb) %}
+        <tr>
+            <td>
+                <img src="{{ url_for('static', filename='uploads/' + item) }}" alt="" class="img-fluid">
+            </td>
+            <td>
+                <img src="{{ url_for('static', filename='uploads/' + y_rgb) }}" alt="" class="img-fluid">
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+    {% endblock %}
