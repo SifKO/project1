@@ -20,7 +20,7 @@ class Config:
 
     # for files store
     UPLOAD_FOLDER = os.environ.get(
-        'UPLOAD_FOLDER') or '/home/kid/Projects/lab1_TUSUR/image_processor/static/uploads'
+        'UPLOAD_FOLDER') or 'image_processor/static/uploads'
     # Allowed files
     ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
     MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16 MB

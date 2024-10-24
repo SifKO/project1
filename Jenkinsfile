@@ -19,6 +19,7 @@ pipeline {
                 sh '''
                     ssh admin@34.207.229.44 "
                     sudo systemctl stop myflaskapp
+                    export UPLOAD_FOLDER="$(pwd)/project1/image_processor/static/uploads"
                     if [ -d project1/static/uploads ];then
                         rm -rf project1/static/uploads
                     fi
