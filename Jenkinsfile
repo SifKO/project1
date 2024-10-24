@@ -14,6 +14,18 @@ pipeline {
     }
 
     stages {
+        stage("Preparations") {
+            steps {
+                sh '''
+                    ssh admin@34.207.229.44 "
+                    sudo systemctl stop myflaskapp
+                    if [ -d project1/static/uploads ];then
+                        rm -rf project1/static/uploads
+                    fi
+                    "
+                '''
+            }
+        }
         stage("Pull code") {
             steps {
                     sh '''
@@ -41,7 +53,7 @@ pipeline {
             steps {
                     sh '''
                         ssh admin@34.207.229.44 "
-                        sudo systemctl restart myflaskapp
+                        sudo systemctl start myflaskapp
                         "
                     '''
             }
