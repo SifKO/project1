@@ -32,7 +32,10 @@ pipeline {
                     sh '''
                         ssh admin@34.207.229.44 "
                         (cd project1 && git pull) || (git clone https://github.com/SifKO/project1.git \
+                        && mkdir project1/log \
+                        && sudo chown admin:www-data -R project1/ \
                         && cd project1 \
+                        && mkdir log \
                         && python3 -m venv .venv)
                         "
                     '''
