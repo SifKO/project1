@@ -2,7 +2,6 @@
 Этот модуль содержит функции для работы с данными пользователей.
 Здесь определены функции для их добавления, удаления и редактирования.
 """
-# import logging
 import os
 import magic
 import matplotlib.pyplot as plt
@@ -145,10 +144,3 @@ def is_allowed_img(img):
         # Check type
         return True
     return False
-
-# # Пример использования
-# uploaded_file = request.files['photo']  # Получаем файл из запроса
-# if is_valid_file(uploaded_file):
-#     # Обрабатываем файл
-# else:
-#     # Обрабатываем ошибку
