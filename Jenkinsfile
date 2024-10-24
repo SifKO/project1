@@ -20,7 +20,7 @@ pipeline {
                         ssh admin@34.207.229.44 "
                         (cd project1 && git pull) || (git clone https://github.com/SifKO/project1.git \
                         && cd project1 \
-                        &&python -m venv .venv)
+                        && python3 -m venv .venv)
                         "
                     '''
             }
